@@ -25,16 +25,6 @@ namespace SampleWPFUI
             InitializeComponent();
         }
 
-        private void DisplayName_Click(object sender, RoutedEventArgs e)
-        {
-            namesList.Items.Clear();
-
-            AssignFormatterLamdaExpression();
-
-            foreach (var person in people)
-                namesList.Items.Add(person.ToString(formatter));
-        }
-
         List<Person> people = new List<Person>
         {
             new Person { FirstName = "John", LastName = "Doe" },
@@ -44,6 +34,8 @@ namespace SampleWPFUI
             new Person { FirstName = "Natasha", LastName = "Romanoff" },
             new Person { FirstName = "Stephen", LastName = "Strange" },
         };
+
+        #region Using Custom Delegates
 
         // PersonFormatter is a delegate 
         //      - parameter - Person
@@ -62,6 +54,20 @@ namespace SampleWPFUI
             else if (rdBtn_LastNameOnly.IsChecked.Value)
                 formatter = NameFormatter.LastNameOnly;
         }
+
+        private void DisplayName_Click(object sender, RoutedEventArgs e)
+        {
+            namesList.Items.Clear();
+
+            AssignFormatterLamdaExpression();
+
+            foreach (var person in people)
+                namesList.Items.Add(person.ToString(formatter));
+        }
+
+        #endregion
+
+        #region Lambda Expressions as Delegates
 
         // Lambda expressions as delegates
         public void AssignFormatterLamdaExpression()
@@ -94,6 +100,38 @@ namespace SampleWPFUI
             else if (rdBtn_LastNameOnly.IsChecked.Value)
                 formatter = person => person.LastName;
         }
+
+        #endregion
+
+        #region Using Func<> as Delegates
+        Func<Person, string> formatterFunc;
+
+        public void AssignFomratterFunc()
+        {
+            if (rdBtn_Default.IsChecked.Value)
+                formatterFunc = p => $"{p.FirstName} {p.LastName}";
+
+            else if (rdBtn_LastNameFirst.IsChecked.Value)
+                formatterFunc = p => $"{p.LastName} {p.FirstName}";
+
+            else if (rdBtn_FirstNameOnly.IsChecked.Value)
+                formatterFunc = p => p.FirstName;
+
+            else if (rdBtn_LastNameOnly.IsChecked.Value)
+                formatterFunc = p => p.LastName;
+        }
+
+        private void DisplayName_Func_Click(object sender, RoutedEventArgs e)
+        {
+            namesList.Items.Clear();
+
+            AssignFomratterFunc();
+
+            foreach (var person in people)
+                namesList.Items.Add(person.ToString(formatterFunc));
+        }
+
+        #endregion
 
         private async void DisplayName_Async_Click(object sender, RoutedEventArgs e)
         {

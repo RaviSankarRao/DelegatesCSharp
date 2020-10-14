@@ -20,7 +20,7 @@ namespace SampleWPFUI
         public string ToString(PersonFormatter formatter)
         {
             // formatter delegate - 1. Accepts a person object, 2. Returns a string 
-            return formatter(this);
+            return formatter.Invoke(this);
         }
 
         // The parameter here is not a custom defined delegate as previous
@@ -31,7 +31,7 @@ namespace SampleWPFUI
         public string ToString(Func<Person, string> formatter)
         {
             // formatter delegate - 1. Accepts a person object, 2. Returns a string 
-            return formatter(this);
+            return formatter.Invoke(this);
         }
     }
 }

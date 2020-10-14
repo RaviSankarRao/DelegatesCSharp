@@ -10,13 +10,14 @@
         Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#1C2F3E">
-        <RadioButton Foreground="White" Content="Default Format" HorizontalAlignment="Left" Margin="87,70,0,0" VerticalAlignment="Top" Name="rdBtn_Default"/>
-        <RadioButton Foreground="White" Content="Last Name First" HorizontalAlignment="Left" Margin="87,108,0,0" VerticalAlignment="Top" Name="rdBtn_LastNameFirst"/>
-        <RadioButton Foreground="White" Content="First Name Only" HorizontalAlignment="Left" Margin="87,150,0,0" VerticalAlignment="Top" Name="rdBtn_FirstNameOnly"/>
-        <RadioButton Foreground="White" Content="Last Name Only" HorizontalAlignment="Left" Margin="87,191,0,0" VerticalAlignment="Top" Name="rdBtn_LastNameOnly"/>
-        <Button Content="Display Name" HorizontalAlignment="Left" Margin="91,239,0,0" VerticalAlignment="Top" Height="34" Width="100" Click="DisplayName_Click"/>
+        <RadioButton Foreground="White" Content="Default Format" HorizontalAlignment="Left" Margin="87,24,0,0" VerticalAlignment="Top" Name="rdBtn_Default"/>
+        <RadioButton Foreground="White" Content="Last Name First" HorizontalAlignment="Left" Margin="87,44,0,0" VerticalAlignment="Top" Name="rdBtn_LastNameFirst"/>
+        <RadioButton Foreground="White" Content="First Name Only" HorizontalAlignment="Left" Margin="87,64,0,0" VerticalAlignment="Top" Name="rdBtn_FirstNameOnly"/>
+        <RadioButton Foreground="White" Content="Last Name Only" HorizontalAlignment="Left" Margin="87,84,0,0" VerticalAlignment="Top" Name="rdBtn_LastNameOnly"/>
+        <Button Content="Display Name (Custom delegate)" HorizontalAlignment="Left" Margin="44,118,0,0" VerticalAlignment="Top" Height="34" Width="197" Click="DisplayName_Click"/>
+        <Button Content="Display Name (Func)" HorizontalAlignment="Left" Margin="44,165,0,0" VerticalAlignment="Top" Height="34" Width="197" Click="DisplayName_Func_Click"/>
         <Button Content="Display Name Async" HorizontalAlignment="Left" Margin="91,290,0,0" VerticalAlignment="Top" Height="34" Width="150" Click="DisplayName_Async_Click"/>
-        <ListBox Name="namesList" Margin="256,70,329,110"/>
-        <ListBox Name="messagesList" Margin="506,70,70,110"/>
+        <ListBox Name="namesList" Margin="256,24,329,27"/>
+        <ListBox Name="messagesList" Margin="506,24,70,27"/>
     </Grid>
 </Window>
