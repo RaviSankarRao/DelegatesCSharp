@@ -43,6 +43,7 @@ namespace SampleWPFUI
         public PersonFormatter formatter;
 
         // Functions assigned to delegates
+        // Declared in /WithDelegates/Person.cs
         public void AssignFormatter()
         {
             if (rdBtn_Default.IsChecked.Value)
@@ -62,7 +63,7 @@ namespace SampleWPFUI
             AssignFormatterLamdaExpression();
 
             foreach (var person in people)
-                namesList.Items.Add(person.ToString(formatter));
+                namesList.Items.Add(person.ToString(formatter));    // Check WithDelegates/Person.cs to which overloaded ToString this navigates to
         }
 
         #endregion
@@ -128,7 +129,7 @@ namespace SampleWPFUI
             AssignFomratterFunc();
 
             foreach (var person in people)
-                namesList.Items.Add(person.ToString(formatterFunc));
+                namesList.Items.Add(person.ToString(formatterFunc)); // Check WithDelegates/Person.cs to which overloaded ToString this navigates to
         }
 
         #endregion
